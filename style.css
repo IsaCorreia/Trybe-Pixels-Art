@@ -1,8 +1,8 @@
 #pixel-board {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
-.color , .pixel {
+.color {
   display: inline-block;
   border: 1px solid black;
   width: 50px;
