@@ -27,6 +27,46 @@ function selectColor (event){
     }
 }
 
+// Define o tamanho inicial do canvas
+n = 5;
+for (let i = 0; i < n; i += 1) {
+    let divLine = document.createElement('div');
+    divLine.classList.add('line'+[i]);
+    document.getElementById('pixel-board').appendChild(divLine);
+   
+    for (let j = 0; j < n; j += 1) {
+        let divCol = document.createElement('div');
+        divCol.classList.add('pixel');
+        document.querySelector('.line'+[i]).appendChild(divCol);
+    }
+}
+
+// Requisito 10 - teste
+// Problema em removeChild() para apagar o canvas anterior
+// function canvasSize(){
+//     let input = document.querySelector('#board-size');
+//     n = input.value;
+
+//     for (let i = 0; i < n; i += 1) {
+//         let canvas = document.getElementsByClassName('line');
+//         if (document.getElementsByClassName('line')) {
+//             canvas.removeChild()
+//         }
+//     }
+
+//     for (let i = 0; i < n; i += 1) {
+//         let divLine = document.createElement('div');
+//         divLine.classList.add('line'+[i]);
+//         document.getElementById('pixel-board').appendChild(divLine);
+       
+//         for (let j = 0; j < n; j += 1) {
+//             let divCol = document.createElement('div');
+//             divCol.classList.add('pixel');
+//             document.querySelector('.line'+[i]).appendChild(divCol);
+//         }
+//     }
+// }
+
 // Detecção de clique nos pixels
 addEventListener('click', paintPixel);
 function paintPixel(event){
