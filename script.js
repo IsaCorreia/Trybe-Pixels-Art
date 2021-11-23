@@ -37,3 +37,10 @@ function paintPixel(event){
         pixel.style.backgroundColor = colorBg;
     }
 }
+
+function clearBoard(){
+    let board = document.querySelectorAll('.pixel');
+    for (let i = 0; i < board.length; i += 1) {
+        board[i].style.backgroundColor = 'white';
+    }
+}
