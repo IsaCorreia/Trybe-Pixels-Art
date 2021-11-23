@@ -17,7 +17,7 @@
   height: 40px;
 }
 
-#first-color {
+#first-color , .selected {
   background-color: black;
 }
 

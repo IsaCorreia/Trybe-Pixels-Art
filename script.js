@@ -1,24 +1,39 @@
-// Adicionar Event Listener nos objetos dentro de .color-palette
-// adicionar classe .selected no elemento que for clicado
-// Remover classe .selected do elemento anterior
-
+// Reserva, no início do carregamento, a primeira cor que deve receber a classe .selected (preto)
 const firstColor = document.getElementById('first-color');
 
-// Marca preto como a primeira cor ao iniciar a tela
+// Atribui a classe
 window.onload = firstColor.classList.add('selected');
+// Reserva a propriedade background-color da primeira cor
+let colorBg = window.getComputedStyle(firstColor).backgroundColor;
 
-// Detecção de clique
-addEventListener('click', changeColor);
+
+// Detecção de clique da paleta de cores
+addEventListener('click', selectColor);
 // Troca a cor selecionada
-function changeColor (event){
-    console.log(event.target.classList);
+function selectColor (event){
+    // classList.contains = Checa se na lista de classes, contém 'x' classe.
+    // Ref: https://stackoverflow.com/questions/5898656/check-if-an-element-contains-a-class-in-javascript
     if (event.target.classList.contains('color') === true) {
+        // remove a classe .selected do elemento que a continha
         const elementoUm = document.querySelector('.selected');
-        console.log(elementoUm);
         elementoUm.classList.remove('selected');
 
+        // Adiciona a classe .selected ao elemento selecionado.
         const elementoDois = event.target;
-        console.log(elementoDois);
-        elementoDois.classList.add('selected')
+        elementoDois.classList.add('selected');
+
+        // Reserva a background-color do elemento elecionado
+        colorBg = window.getComputedStyle(elementoDois).backgroundColor;
+    }
+}
+
+// Detecção de clique nos pixels
+addEventListener('click', paintPixel);
+function paintPixel(event){
+    // getComputedStyle = Retorna os valores do estilo atribuído via CSS numa stylesheet
+    // ref: https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle
+    if (event.target.classList.contains('pixel') === true) {
+        let pixel = event.target;
+        pixel.style.backgroundColor = colorBg;
     }
 }
